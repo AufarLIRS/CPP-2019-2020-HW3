@@ -1,0 +1,17 @@
+name: CI clang format check
+
+on:
+  pull_request:
+    types: [review_requested]
+
+jobs:
+  clang-format-check:
+
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: clang-format lint
+          uses: DoozyX/clang-format-lint-action@v0.1
+          with:
+            source: '.'
+            extensions: 'h,cpp'
