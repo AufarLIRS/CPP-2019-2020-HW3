@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        - name: clang-format lint
-          uses: DoozyX/clang-format-lint-action@v0.1
-          with:
-            source: '.'
-            extensions: 'h,cpp'
+      - name: clang-format install
+        run: apt install clang-format
+      - name: clang-format
+        run: clang-format -i -style=file '.*\.(cpp|h)$'
+      - name: git diff
+        run: git diff-index --quiet HEAD
