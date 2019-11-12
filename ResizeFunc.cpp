@@ -1,3 +1,5 @@
+#include "ResizeFunc.h"
+
 char *resizenew(char *str, unsigned size, unsigned new_size) {
   if (new_size < size)
     return nullptr;
