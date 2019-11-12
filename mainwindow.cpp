@@ -6,16 +6,21 @@
 #include <QDebug>
 #include <QMessageBox>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow) {
+MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+{
   ui->setupUi(this);
 }
 
-MainWindow::~MainWindow() { delete ui; }
+MainWindow::~MainWindow()
+{
+  delete ui;
+}
 
 std::vector<User> User::users_;
 
-void MainWindow::on_submitPushButton_clicked() {
+void MainWindow::on_submitPushButton_clicked()
+
+{
   qDebug() << "User clicked on submit button";
 
   User::addUser(User(22, "Timofey"));

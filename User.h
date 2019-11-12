@@ -3,7 +3,8 @@
 #include <QString>
 #include <vector>
 
-class User {
+class User
+{
   int age_;
   QString name_;
   static std::vector<User> users_;
@@ -18,4 +19,4 @@ public:
   static void removeUserByName(QString name);
   static std::vector<QString> getAllNames();
 };
-#endif // USER_H
+#endif  // USER_H

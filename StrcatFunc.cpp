@@ -1,9 +1,11 @@
 #include "StrcatFunc.h"
 
-void strcatvoid(char *to, const char *from) {
+void strcatvoid(char* to, const char* from)
+{
   while (*to)
     to++;
-  while (*from) {
+  while (*from)
+  {
     *to = *from;
     to++;
     from++;
