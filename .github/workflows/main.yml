@@ -13,6 +13,6 @@ jobs:
       - name: clang-format install
         run: sudo apt install clang-format
       - name: clang-format
-        run: clang-format -i -style=file '.*\.(cpp|h)$'
+        run: find . -regex '.*\.\(cpp\|hpp\|h\)' -exec clang-format -style=file -i {} \
       - name: git diff
         run: git diff-index --quiet HEAD
