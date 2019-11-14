@@ -9,7 +9,8 @@ void custom_strcat(char* to, const char* from)
     ++p;
   }
   while (*p++ = *from++)
-    ;
+  {
+  }
 }
 char* custom_resize(char* str, unsigned size, unsigned new_size)
 {
