@@ -1,4 +1,4 @@
-QT       += core gui
+LQT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,13 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    User.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    resize_new.cpp \
+    strcat_new.cpp \
+    user.cpp
 
 HEADERS += \
-    User.h \
-    mainwindow.h
+    mainwindow.h \
+    resize_new.h \
+    strcat_new.h \
+    user.h
 
 FORMS += \
     mainwindow.ui
