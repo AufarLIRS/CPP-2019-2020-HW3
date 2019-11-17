@@ -1,4 +1,6 @@
 #include "User.h"
+
+static std::vector<User> users_;
 User::User(int age, QString name)
 {
   this->age_ = age;

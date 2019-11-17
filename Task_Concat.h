@@ -1,5 +1,5 @@
-#ifndef STRINGFUNCTIONS_H
-#define STRINGFUNCTIONS_H
+#ifndef TASK_CONCAT_H
+#define TASK_CONCAT_H
 
 void custom_strcat(char* to, const char* from);
 

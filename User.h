@@ -8,7 +8,6 @@ class User
 {
   int age_;
   QString name_;
-  static std::vector<User> users_;
 
 public:
   User(int age, QString name);

@@ -15,11 +15,3 @@ void strcat(char* to, const char* from)
     }
   }
 }
-
-int main()
-{
-  char a[] = "asd\0";
-  char b[] = "asd\0";
-  strcat(a, b);
-  std::cout << a;
-}

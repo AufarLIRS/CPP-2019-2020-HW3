@@ -19,14 +19,12 @@ SOURCES += \
     Task_Concat.cpp \
     Task_resize.cpp \
     User.cpp \
-    User.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Task_Concat.h \
     Task_resize.h \
-    User.h \
     User.h \
     mainwindow.h
 
