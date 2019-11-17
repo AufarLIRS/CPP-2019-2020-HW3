@@ -21,4 +21,4 @@ public:
   static std::vector<QString> getAllNames();
 };
 
-#endif // USER_H
+#endif  // USER_H
