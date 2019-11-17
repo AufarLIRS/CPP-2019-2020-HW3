@@ -1,8 +1,8 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "User.h"
-#include "Task_Concat.h"
 #include "Task_resize.h"
+#include "Task_Concat.h"
+#include "User.h"
+#include "ui_mainwindow.h"
 #include <QDebug>
 #include <QMessageBox>
 
@@ -15,6 +15,8 @@ MainWindow::~MainWindow()
 {
   delete ui;
 }
+
+std::vector<User> User::users_;
 
 void MainWindow::on_submitPushButton_clicked()
 {
@@ -29,7 +31,8 @@ void MainWindow::on_submitPushButton_clicked()
 
   qDebug() << "Current students' count: " << User::getCount();
   qDebug() << "All students: ";
-  // qDebug() << User::getAllNames();
+  // qDebug() << User::getAllNames(); Не понимаю, как решить эту проблему. Пишет, что invalid operands to binary
+  // expression
   qDebug() << "Removing user at 4 index";
 
   User::removeUserAt(4);
