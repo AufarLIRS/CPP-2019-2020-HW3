@@ -1,85 +1,65 @@
-#include "mainwindow.h"
+KK #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <user.h>
 
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    MainWindow::MainWindow(QWidget* parent)
+  : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+  ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+  delete ui;
 }
-
-
-class User{
-    int age_;
-    QString name_;
-public:
-    static std::vector<User> users_;
-    User(int age, QString name){
-        this->age_=age;
-        this->name_=name;
-    }
-    QString getName(){
-        return name_;
-    }
-    int getAge(){
-        return age_;
-    }
-    static size_t getCount(){
-        return  users_.size();
-    }
-    static void addUser(User user){
-        users_.push_back(user);
-    }
-    static void removeUserAt(int index){
-        users_.erase(users_.begin() + index);
-    }
-    static void removeUserByName(QString name){
-        users_.erase(std::remove_if(users_.begin(), users_.end(),[&](User found){return found.getName() == name;}), users_.end());
-    }
-    static std::vector<QString> getAllNames(){
-        std::vector<QString> list;
-        std::for_each(users_.begin(),users_.end(),[&](User found){list.push_back(found.getName());});
-        return  list;
-    }
-};
 
 std::vector<User> User::users_;
 
 void MainWindow::on_submitPushButton_clicked()
 {
-    qDebug() << "User clicked on submit button";
+  qDebug() << "User clicked on submit button";
 
+  User::addUser(User(22, "Timofey"));
+  User::addUser(User(33, "Aufar"));
+  User::addUser(User(44, "Valery"));
+  User::addUser(User(55, "Kirill"));
+  User::addUser(User(66, "Artem"));
+  User::addUser(User(77, "Camila"));
 
-    User::addUser(User(22,"Timofey"));
-    User::addUser(User(33,"Aufar"));
-    User::addUser(User(44,"Valery"));
-    User::addUser(User(55,"Kirill"));
-    User::addUser(User(66,"Artem"));
-    User::addUser(User(77,"Camila"));
+  qDebug() << "Current students' count: " << User::getCount();
+  qDebug() << "All students: ";
+  qDebug() << User::getAllNames();
+  qDebug() << "Removing user at 4 index";
 
-    qDebug() << "Current students' count: " << User::getCount();
-    qDebug() << "All students: ";
-    qDebug() << User::getAllNames();
-    qDebug() << "Removing user at 4 index";
+  User::removeUserAt(4);
 
-    User::removeUserAt(4);
+  qDebug() << "Current Students' Count: " << User::getCount();
+  qDebug() << "All students: ";
+  qDebug() << User::getAllNames();
+  qDebug() << "Removing user named Aufar ";
 
-    qDebug() << "Current Students' Count: " << User::getCount();
-    qDebug() << "All students: ";
-    qDebug() << User::getAllNames();
-    qDebug() << "Removing user named Aufar ";
+  User::removeUserByName("Aufar");
 
-    User::removeUserByName("Aufar");
+  qDebug() << "Current Students' Count: " << User::getCount();
+  qDebug() << "All students: ";
+  qDebug() << User::getAllNames();
 
-    qDebug() << "Current Students' Count: " << User::getCount();
-    qDebug() << "All students: ";
-    qDebug() << User::getAllNames();
+  // Тестируем конкатенцию слов и resize
+  /*
+  char *start = "Hello, " + '\0';
+  char *from = "world!" + '\0';
+  char *to = (char*)malloc(strlen(start) + strlen(from) + 1);   // выделяем для to место для двух слов
+  memcpy(to, start, strlen(start) + 1);                         // to = "Hello, "
+  User::strcat(to, from);                                       // to = "Hello, world!"
+  qDebug() << to;
+  */
+
+  // Тестируем конкатенцию слов и resize
+  char* to = "Hello, " + '\0';
+  char* from = "world!" + '\0';
+  to = User::resize(to, strlen(to) + 1, strlen(to) + strlen(from) + 1);  // выделяем для to место для двух слов
+  User::strcat(to, from);                                                // to = "Hello, world!"
+  qDebug() << to;
 }
